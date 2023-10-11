@@ -30,7 +30,8 @@ class BaseScene extends Phaser.Scene {
 
     this.waves = this.add
       .image(this.config.width / 2, this.config.height - 114, "waves")
-      .setOrigin(0.5, 0);
+      .setOrigin(0.5, 0)
+      .setDepth(2);
 
     if (this.config.canGoBack) {
       const backBtn = this.add

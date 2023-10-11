@@ -7,7 +7,7 @@ import PauseScene from "./scenes/PauseScene.js";
 import UserInterfaceScene from "./scenes/UserInterfaceScene.js";
 
 const sharedConfig = {
-  version: "1.0.0",
+  version: "1.0.1",
   height: 600,
   width: window.innerWidth > 900 ? 900 : window.innerWidth,
   fontSize: 32,
