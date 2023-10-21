@@ -6,7 +6,7 @@ const webpack = require('webpack');
 module.exports = {
   mode: 'development',
   entry: {
-    app: './src/index.js'
+    app: './src/index.ts'
   },
   devtool: "eval-source-map",
   output: {
@@ -27,16 +27,17 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-        }
+        test: /\.ts?$/,
+        include: path.resolve(__dirname, 'src'),
+        loader: 'ts-loader'
       }
     ]
   },
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js'],
+  },
   devServer: {
-    contentBase: path.resolve(__dirname, 'build'),
+    static: path.resolve(__dirname, 'build'),
     compress: true,
     port: 8080,
   },
@@ -54,10 +55,7 @@ module.exports = {
           from: path.resolve(__dirname, 'assets/**/*'),
           to: path.resolve(__dirname, 'build')
         }
-      ],
-    }),
-    new webpack.ProvidePlugin({
-      process: 'process/browser' 
+      ]
     })
-  ],
+  ]
 };
