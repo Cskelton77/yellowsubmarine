@@ -40,8 +40,8 @@ export abstract class BaseScene extends Phaser.Scene {
         this.hoverFill = config.hoverFill;
 
         this.fontOptions = {
-        fontSize: `${this.fontSize}px`,
-        fill: this.fill,
+            fontSize: `${this.fontSize}px`,
+            fill: this.fill,
         };
 
         this.screenCenter = { x: config.width / 2, y: config.height / 2 };
