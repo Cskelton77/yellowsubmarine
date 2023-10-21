@@ -1,7 +1,8 @@
-import BaseScene from "./BaseScene";
+import { SharedConfig } from "..";
+import {BaseScene} from "./BaseScene";
 
 class ScoreScene extends BaseScene {
-  constructor(config) {
+  constructor(config: SharedConfig) {
     super({
       sceneName: "ScoreScene",
       config: {
@@ -38,7 +39,7 @@ class ScoreScene extends BaseScene {
       `Back`,
       {
         fontSize: `16px`,
-        fill: this.fill,
+        // fill: this.fill,
       }
     );
 
@@ -54,13 +55,13 @@ class ScoreScene extends BaseScene {
       `Reset High Score`,
       {
         fontSize: `18px`,
-        fill: this.fill,
+        // fill: this.fill,
       }
     );
 
     super.configureButton(resetBtn, () => {
-      localStorage.setItem("bestScore", 0);
-      this.scene.restart("MenuScene");
+      localStorage.setItem("bestScore", '0');
+      this.scene.restart({data: "MenuScene"});
     });
   }
 }
